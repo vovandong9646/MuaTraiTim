@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>trái tim rơi</title>
+	<meta charset="utf-8">
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		body{
+			position:relative;
+			overflow:hidden;
+		}
+		h3{
+			text-align:center;
+			padding-top:200px;
+			font-size:50px;
+			font-weight:bold;
+		}
+	</style>
+
+	<script type="text/javascript">
+			//b1: tạo 1 function setRanDom truyền vào min, max return Math.foor() đề lấy giá trị nguyền cao nhất, của cái Math.random() * (max - min) xong  +min;
+			//b2: setInterval(function(){},thời gian lặp lại) để lặp lại cái hành động đó mãi mãi
+			//b1: tạo 1 thẻ span -> thêm class là glyphicon glyphicon-heart để chèn cái hình vào thẻ span
+			//b2: css cho thẻ span với các thuộc tính: position:absolute; display:block; z-index:auto; top:0px; left:(0,chiều dài màn hình),opacity:độ mờ random từ 1->0.1, font-size: random từ 5,20 ,color: màu trái tim
+			//b3: thêm nó vào body bằng thẻ appendTo('body');
+			//b4: tạo chuyển động animate cho nó, diều chỉnh lại cái top, left, cho nó 1 cái duration thời gian chạy, easing kiểu rơi, complete: function(){    ẩn cái thẻ span đó đi, và remove nó lun   }
+			function setRandom(min,max){
+				return Math.floor(Math.random() * (max - min))+min;
+			}
+
+			$(document).ready(function(){
+				setInterval(function(){
+					var screenwidth = $(document).width();
+					var screenheight = $(document).height();
+					var startleft = setRandom(0,screenwidth);
+					var endleft = setRandom(startleft-100,startleft+100);
+					var opa = Math.random() * (1 - 0.2) +0.2;
+					var timerun = setRandom(6000,8000);
+					var sizeR = setRandom(5,30);
+					var heart = document.createElement("span");
+					$(heart).addClass("glyphicon glyphicon-heart").css({
+						'position':'absolute',
+						'z-index':'auto',
+						'display':'block',
+						'top':0,
+						'left':startleft,
+						'opacity':opa,
+						'font-size':sizeR,
+						'color':'red'
+					}).appendTo("body").animate({
+						'top':screenheight - sizeR,
+						'left':endleft
+					},{
+						duration:timerun,
+						easing:'linear',
+						complete:function(){
+							$(this).fadeOut('fast',function(){
+								$(this).remove();
+							});
+						}
+					});
+
+				},300);
+			});
+
+	</script>
+</head>
+<body>
+	<h3>Văn Đông Bờ Rồ</h3>
+</body>
+</html>

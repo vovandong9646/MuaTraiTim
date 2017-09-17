@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="jquery.min.js"></script>
+	<style type="text/css">
+	*{
+		margin:0px;
+		padding:0px;
+	}
+		.demo{
+			width:100px;
+			height:100px;
+			background:yellow;
+			border:1px solid black;
+			margin:5px auto;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			function chuyendong(){
+				$(".demo").slideToggle('slow',chuyendong);
+			}
+			chuyendong();
+
+
+			$("#run").click(function(){
+				$(".demo:animated").css("background","red");
+			});
+		});
+
+	</script>
+</head>
+<body>
+	<div id="run">
+		<button id="run" class="btn btn-primary">Run</button>
+	</div>
+	<div class="demo"></div>
+	
+</body>
+</html>

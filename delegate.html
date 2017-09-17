@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<meta charset="utf-8">
+	<script src="jquery.min.js"></script>
+	<style type="text/css">
+		ul{
+			list-style-type:none;
+		}
+		li{
+			display:block;
+			float:left;
+			margin-left:20px;
+			border:1px solid black;
+			padding:20px;
+		}
+		.doimau{
+			background:yellow;
+		}
+	</style>
+	<script type="text/javascript">
+	// Sự kiện delegate('selection','even',function) -> theo suy đoán của mình thì :::::   từ selection là ul ta có thể chọn các li con thuộc ul đó :) vấn đề là ta chọn đúng 1 cái li đó để đổi màu... còn dùng click thì nó sẽ đổi màu tất cả các li luôn
+		 $(document).ready(function(){
+			$("ul").delegate('li','click',function(){
+				$(this).toggleClass("doimau");
+			});			
+		});
+	</script>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+</body>
+</html>

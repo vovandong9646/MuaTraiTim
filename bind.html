@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="jquery.min.js"></script>
+	<style type="text/css">
+	
+	</style>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+	/*		//c1: sử dụng 1 sự kiện double click
+			$("h1").bind('dblclick',function(){
+				alert(1);
+			});
+			//c2: sử dụng 2 sự kiện cho 1 hành động
+			$("h1").bind("click dblclick",function(){
+				alert(2);
+			});
+		*/
+			//c3: sử dụng mỗi sự kiện là 1 hành động tương ứng
+			$("h1").bind({
+
+				click:function(){
+					$("#demo").html("click");
+				},mouseenter:function(){
+					$("#demo").html("mouse enter");
+				},mouseleave:function(){
+					$("#demo").html("mouse leave");
+				}
+
+			});
+
+
+		});
+
+	</script>
+</head>
+<body>
+	<h1>click me</h1>
+	<div id="demo"></div>
+</body>
+</html>

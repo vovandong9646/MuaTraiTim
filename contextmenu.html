@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<meta charset="utf-8">
+	<script src="jquery.min.js"></script>
+	<style type="text/css">
+	
+	</style>
+	<script type="text/javascript">
+	// Sự kiện contextmenu là sự kiện kích chuột phải
+		$(document).ready(function(){
+			$("h1").contextmenu(function(){
+				alert("đây là sự kiện kích chuột phải");
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>click me</h1>
+	<div id="demo"></div>
+</body>
+</html>
